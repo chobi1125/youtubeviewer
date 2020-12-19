@@ -39,15 +39,18 @@ export const colors = Object.keys(colorsMap);
 export const displays = ['initial', 'block', 'inline', 'inline-block'];
 export const aligns = ['left', 'right', 'center'];
 
+// pタグのコンポーネントとして定義
+// 分割代入して記述してる ※ color: ${(props) => colorsMap[props.color]};
 const Root = styled.p`
   margin: 0;
-  color: ${({ color }) => colorsMap[color]};
+  color: ${({ color }) => colorsMap[color]}; 
   ${({ size }) => sizeMap[size]};
   display: ${({ display }) => display};
   text-align: ${({ align }) => align};
   font-weight: ${({ bold }) => (bold ? 'bold' : 'normal')};
 `;
 
+// コンポーネントの実体を表す部分
 const Typography = ({
   className,
   size,

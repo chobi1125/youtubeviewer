@@ -24,6 +24,7 @@ export const InputPresenter = ({
   defaultValue,
   placeholder,
 }) => (
+  // Rootコンポーネントをスタイル定義したinput要素として作成
   <Root
     className={className}
     defaultValue={defaultValue}
@@ -89,9 +90,12 @@ InputContainer.defaultProps = {
   placeholder: '',
 };
 
+// 実体 export defaultでinputと明示はしてない
+// コンテナー・コンポーネントがプレゼンテーショナル・コンポーネントをpresenterとして受け取って実行するように実装
 export default (props) => (
   <InputContainer
     presenter={InputPresenter}
+    // propsオブジェクトの中身を全てコンポーネントに渡すための記述
     {...props}
   />
 );
